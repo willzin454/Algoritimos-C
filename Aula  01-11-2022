@@ -1,0 +1,104 @@
+# objeto variavel de uma classe.
+# classes são um modelo para um objeto.
+# modelo é uma instancia.
+# instancia é a memoria disponivel para usar informações.
+# A = letra maiusculo simboliza o nome de uma classe.
+
+class Data:
+    def __init__(self):
+        self.dia = 0
+        self.mes = 0
+        self.ano = 0
+
+class Professor:
+    def __init__(self):
+        self.nome = ""
+        self.idade = 0
+        self.salario = 0.0
+        self.dataNasc = Data()
+
+
+def exibirProfessor(professor):
+    print("Nome:", professor.nome)
+    print("Idade:", professor.idade)
+    print("R$:", professor.salario)
+
+ayslan = Professor() 
+ayslan.nome = "Ayslan T. Possebom"
+ayslan.idade = 41
+ayslan.salario = 2000.00
+ayslan.dataNasc.dia = 19
+ayslan.dataNasc.mes = 4
+ayslan.dataNasc.ano = 2012
+
+ayslan.salario += ayslan.salario*1.25
+exibirProfessor(ayslan)
+
+
+import mysql.connector
+#conectar no banco de dados
+banco = mysql.connector.connect(            # banco armazena o link com o banco de dados.
+    host="localhost",                       # IP da maquina.
+    user="root",                            # usuario do banco.
+    password="",                            
+    database="algoritimos"                  # o nome do banco de dados.
+)
+if(banco):
+    print("Conectado com sucesso")
+else:
+    print("Erro na conexão")
+
+x = 1
+
+while(x == 1):
+    a = str(input("Informe o nome da disciplina: " ))
+    b = int(input("Informe a carga horaria: "))
+    c = str(input("Informe o nome do Professor: "))
+    print(" 1 para continuar e 0 para sair")
+
+    cursor = banco.cursor()                     # usar para manipular.
+
+    sql = "INSERT INTO desciplinas VALUES(%s, %s, %s, %s)"
+
+    valores = (None, a, b, c)
+    cursor.execute(sql, valores)
+
+    banco.commit()
+
+    x = int(input("Informe um comando se deseja continuar: "))
+    if(x < 0 or x > 1):
+        print("Insira um dos valores apresentados!")
+    else:
+        print("Saindo...")
+cursor.close()
+
+sql = "SELECT * FROM alunos ORDER BY nome"
+#executar consulta
+cursor.execute(sql)
+#obter a listagem dos resultados
+resultados = cursor.fetchall()
+print("Total de linhas retornadas: ", cursor.rowcount)
+
+#percorrer resultados
+for linha in resultados:
+    print(linha)
+    print("id: ", linha[0])
+    print("nome: ", linha[1])
+    print("idade: ", linha[2])
+    print("email: ", linha[3])
+    print()
+
+"""
+valores2 = (None, "BD", 10, "Ayael")
+cursor.execute(sql, valores2)                # executar consulta.
+
+valores3 = (None, "Estrutura_de_dados", 15, "Misael")
+cursor.execute(sql, valores3)
+
+banco.commit()                               # salvar a consulta definitivamente no banco de dados.
+
+cursor.close()                               # fechar o cursor. Sempre lembrar de fechar.
+
+# sempre lembrar de executar o SLQ para poder inserir os valores.
+# sempre lembrar de dar ctrl + S para salvar.
+"""
