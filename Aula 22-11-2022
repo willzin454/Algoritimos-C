@@ -1,0 +1,92 @@
+import mysql.connector
+
+
+class Disciplina:
+    def __init__(self):
+        self.codigo = 0
+        self.nome = ''
+        self.ch = 0
+        self.professor = ''
+        self.chr = 0.0
+
+
+def salvar(disciplina):                     # todo que pode ser reuzado vai em cima.
+    cursor = banco.cursor()
+
+    sql = "INSERT INTO disciplina VALUES(%s, %s, %s, %s, %s)"
+
+    valores = (None, disciplina.nome, disciplina.ch, disciplina.professor, disciplina.chr)
+    cursor.execute(sql, valores)
+
+    banco.commit()
+    disciplina.codigo = cursor.lastrowid
+
+    cursor.close()
+    banco.close()
+
+def LerDados():
+    banco = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="",
+        database="algoritimos"
+    )
+
+    if(banco):
+        print("Conectado com sucesso")
+    else:
+        print("Erro na conexão")
+
+    cursor = banco.cursor()
+
+    sql = "SELECT * FROM disciplina"
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    x  = [Disciplina()] * cursor.rowcount
+    print(f"O toral de linhas recolhida foi: {cursor.rowcount}")
+    i = 0
+
+    for linha in result:
+        d = Disciplina
+
+        d.codigo = linha [0]
+        d.nome = linha [1]
+        d.ch = linha [2]
+        d.professor = linha [3]
+        d.chr = linha [4]
+
+        x[i] = d
+        i += 1
+
+        return x
+
+    for i in range(0, len(x)):
+        print("Codigo:", linha[0])
+        print("Disciplina:", linha[1])
+        print("Carga horaria:", linha[2])
+        print("Professor:", linha[3])
+        print("Horas totais:", linha[4])
+        
+    cursor.close()
+    banco.close()
+
+
+banco = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="algoritimos"
+)
+if(banco):
+    print("Conectado com sucesso")
+else:
+    print("Erro na conexão")
+
+x = Disciplina()
+x.nome = input("Informe o nome da disciplina: ")
+x.ch = int(input("Informe a carga horaria: "))
+x.professor = input("Informe o nome do professor: ")
+x.chr = (x.ch * 50) / 60
+
+salvar(x)
+LerDados()
