@@ -1,0 +1,81 @@
+"""
+class Funcionario:
+    def __init__(self):
+        self.nome = ""
+        self.idade = 0
+        self.salario = 2000.00
+        self.cargo = Cargo()
+        self.profissao = Profissao()
+
+
+class Profissao:
+    def __init__(self):
+        self.descricao = ""
+        self.possuiRegistro = False
+
+
+class Cargo:
+    def __init__(self):
+        self.descricao = ""
+        self.salarioadicional = 0.0
+
+
+def exibirFuncionario(x):  # não importa o procedimento, ela so vai recer a variavel william que é apontado em "exibirFuncionario(william)"
+    print("Nome: ", x.nome)
+    print("Idade: ", x.idade)
+    print("Descrição Cargo: ", x.cargo.descricao)
+    print("Salario: ", x.salario)
+    print("Descrição Profissão: ", x.profissao.possuiRegistro)
+
+#criar objeto
+william = Funcionario()
+
+#preenche os atributos basicos
+william.nome = input("Nome: ")
+william.idade = int(input("Idade: "))
+
+william.cargo.descricao = input("Cargo: ")
+william.cargo.salarioadicional = int(input("Adicional: "))
+
+william.profissao.descricao = input("Profissão: ")
+william.profissao.possuiRegistro = bool(input("Possui registro? (True ou False): "))
+
+william.salario += william.cargo.salarioadicional
+
+#vai voltar a variavel que recebeu a classe para exibirFuncionario (william)
+exibirFuncionario(william)
+"""
+
+import mysql.connector
+
+class Filme:
+    def __init__(self):
+        self.codigo = 0
+        self.titulo
+        self.
+
+def Lerdados():
+    f = Filme()
+
+    f.titulo = input ("")
+
+    return f
+
+filme = Lerdados()
+
+banco = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="avaliacao"
+)
+
+if(banco):
+    print("conectado")
+else:
+    print("erro!")
+
+cursos = banco.cursor
+
+sql = "INSERT INTO filmes VALUES (%s, %s, %s, %s, %s)"
+valores = (None, f.titulo, )
