@@ -1,0 +1,55 @@
+//exercicio 1
+
+#include <stdio.h>
+#include <conio.h>
+
+int main()
+{
+float altura, r, v;
+printf ("Digite o raio: ");
+scanf("%f", &r);
+printf ("Digite a altura: ");
+scanf("%f", &altura);
+v = altura*3.14*r*r;
+printf ("O volume do cilindro e igual a: %.2lf\n\n", v);
+return 0;
+}
+
+//exercicio 2
+
+#include <stdio.h>
+#include <conio.h>
+
+int main()
+{
+	char opc;
+	float lit, total;
+	printf("Escolha uma opcao: \n\n");
+	printf("	1. Gasolina: RS 7.10\n\n");
+	printf("	2. Alcoo: RS 6.05\n\n");
+	printf("	3. Diesel: RS 6.10\n\n");
+	opc=getch();
+	
+	switch (opc)
+	{
+		case '1':
+			printf("Quantos litros: ", lit);
+			scanf("%f", &lit);
+			total = 7.10*lit;
+			printf("O valor a pagar e: RS %.2lf\n\n", total);
+			break;
+		case '2':
+			printf("Quantos litros: ", lit);
+			scanf("%f", &lit);
+			total = 6.05*lit;
+			printf("O valor a pagar e: RS %.2lf\n\n", total);
+			break;
+		case '3':
+			printf("Quantos litros: ", lit);
+			scanf("%f", &lit);
+			total = 6.10*lit;
+			printf("O valor a pagar e: RS %.2lf\n\n", total);
+			break;
+	return 0;
+	}
+}
