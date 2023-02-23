@@ -33,3 +33,37 @@ int main()
 		} while(n>=0);
 	return 0;
 }
+-----------------------------------------------------
+Ex 1
+
+#include <stdio.h>
+
+int main()
+{
+	float diam, raio, area, circufe;
+	printf("Informe o raio: ");
+	scanf("%f", &raio);
+	diam = 2*raio;
+	printf("O diametro e: %.2f\n", diam);
+	area = 3.14*(raio*raio);
+	printf("A area e: %.2f\n", area);
+	circufe = 2*3.14*raio;
+	printf("A circuferencia e: %.2f\n", circufe);	
+	return 0;
+}
+-----------------------------------------------------
+Ex 2
+
+#include <stdio.h>
+
+int main()
+{
+	float salario, reaj, total;
+	printf("Descreva seu salario: ");
+	scanf("%f", &salario);
+	printf("Descreva o percentual de reajuste: ");	
+	scanf("%f", &reaj);
+	total = salario*reaj;
+	printf("O seu novo valor salarial e: %f", total);
+	return 0;
+}
