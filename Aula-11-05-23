@@ -123,12 +123,13 @@ int main(){
 	scanf("%s", &fist);
 	
 	for(int i = 0; i < 20; i++){	
-		printf("Informe o caracter N-%d: ", i + 1);
+		printf("Informe o caracter Nº%d: ", i + 1);
 		scanf("%s", &letras[i]);
 		resultado0 = CadeiaCaracter(letras, fist);
 	}
 	printf("O total de caracteres iguais foi de: %d", resultado0);
 	return 0;
+	
 }
 
 int CadeiaCaracter(char x[], char y){
@@ -139,5 +140,5 @@ int CadeiaCaracter(char x[], char y){
 		}
 	}
 	return cont;
-				
+	
 }
