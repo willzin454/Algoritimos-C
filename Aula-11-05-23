@@ -1,0 +1,139 @@
+Exemplo:
+
+#include <stdio.h>
+
+int main(){
+	int n, p, fat_n, fat_p, fat_np;
+	int combinacao;
+	
+	printf("Digite o valor de N: ");
+	scanf("%d", &n);
+	printf("Digite o valor de P (P deve ser menor que N): ");
+	scanf("%d", &p);
+	
+	fat_n = 1;
+	for(int i = n; i >= 1; i--){
+		fat_n *= i;
+	}
+	
+	fat_p = 1;
+	for(int i = p; i >= 1; i--){
+		fat_p *= i;
+	}
+	
+	fat_np = 1;
+	for(int i = (n - p); i >= 1; i--){
+		fat_np *= i;
+	}
+	
+	combinacao = fat_n / (fat_p * fat_np);
+	
+	printf("Cobinacao dos valores: %d", combinacao);
+}
+------------------------------------------------------
+Exemplo:
+
+#include <stdio.h>
+
+int fatorial(int numero);
+
+int main(){
+	int n, p, combinacao;
+	
+	printf("Digite o valor de N: ");
+	scanf("%d", &n);
+	printf("Digite o valor de P (P deve ser menor que N): ");
+	scanf("%d", &p);
+	
+	combinacao = fatorial(n) / (fatorial(p)*fatorial(n-p));
+	printf("Cobinacao dos valores: %d", combinacao);
+	
+	return 0;
+}
+
+int fatorial (int numero){
+	int fat = 1;
+	for(int i = numero; i>= 1; i--){
+		fat*= i;	
+	}
+	return fat;
+	
+}
+------------------------------------------------------
+ex 1:
+
+#include <stdio.h>
+
+int soma(int num1,int num2);
+
+int main(){
+	int psoma, ssoma;
+	printf("Informe o primeiro valor: ");
+	scanf("%d", &psoma);
+	printf("Informe o primeiro valor: ");
+	scanf("%d", &ssoma);
+	
+	int resultado0 = soma(psoma, ssoma);
+	printf("A soma e: %d", resultado0);
+	
+	return 0;
+}
+
+int soma(int num1,int num2){
+	int resultado;
+	
+	resultado = num1 + num2;
+	return resultado;
+}
+------------------------------------------------------
+ex 2:
+
+#include <stdio.h>
+
+int RaioCircuferencia(int numero);
+
+int main(){
+	int raio, resutado0;
+	printf("Informe o diametro da circuferencia: ");
+	scanf("%d", &raio);
+	
+	resutado0 = RaioCircuferencia(raio);
+	printf("O raio da circuferencia e: %d cm", resutado0);
+	
+	return 0;
+}
+
+int RaioCircuferencia(int numero){
+	int resultado;
+	
+	resultado = numero / 2;
+	return resultado;
+}
+------------------------------------------------------
+ex 3:
+
+#include <stdio.h>
+
+char CadeiaCaracter(char x, char y);
+
+int main(){
+	char letra[20], fist, resultado0;
+	printf("Informe um caracter a comparar: ");
+	scanf("%s", &fist);
+	for(int i = 0; i < 20; i++){
+		printf("Informe o caracter N-%d : ", i++);
+		scanf("%s", &letra[i]);
+		resultado0 = CadeiaCaracter(letra[i], fist);
+	}
+	return 0;
+}
+
+char CadeiaCaracter(char x,char y){
+	int cont = 0;
+	for(int i = 0; i < 20; i++){
+		if(x[i] == y){
+			cont+=1;
+		}
+	}
+	return resultado;			
+}
