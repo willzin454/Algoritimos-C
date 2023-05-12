@@ -128,7 +128,6 @@ int main(){
 		resultado0 = CadeiaCaracter(letras, fist);
 	}
 	printf("O total de caracteres iguais foi de: %d", resultado0);
-	
 	return 0;
 }
 
@@ -139,5 +138,6 @@ int CadeiaCaracter(char x[], char y){
 			cont+=1;
 		}
 	}
-	return cont;			
+	return cont;
+				
 }
