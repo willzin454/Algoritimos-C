@@ -1,0 +1,135 @@
+// Crie uma função recursiva para realizar uma somatória de de número inteiros de n até
+// 1, sendo n um número inteiro informado pelo usuário.
+
+#include <stdio.h>
+
+int somatoria(int n) {
+    if (n == 1) {
+        return 1;
+    } else {
+        return n + somatoria(n - 1);
+    }
+}
+
+int main() {
+    int n;
+    printf("Digite um numero inteiro: ");
+    scanf("%d", &n);
+
+    int resultado = somatoria(n);
+
+    printf("A somatoria de 1 ate %d e: %d\n", n, resultado);
+
+    return 0;
+}
+----------------------------------------------------------------
+
+// Crie uma função recursiva que receba a razão de uma progressão aritmética e a
+// posição a ser descoberta.
+
+#include <stdio.h>
+
+int encontrarTermo(int razao, int posicao) {
+    if (posicao == 1) {
+        return 1;
+    } else {
+        return encontrarTermo(razao, posicao - 1) + razao;
+    }
+}
+
+int main() {
+    int razao, posicao;
+    printf("Digite a razão da progressão aritmética: ");
+    scanf("%d", &razao);
+    printf("Digite a posição a ser descoberta: ");
+    scanf("%d", &posicao);
+
+    int termo = encontrarTermo(razao, posicao);
+
+    printf("O termo na posição %d da progressão aritmética é: %d\n", posicao, termo);
+
+    return 0;
+}
+----------------------------------------------------------------
+
+// Crie uma função recursiva que receba a razão de uma progressão geométrica e a
+// posição a ser descoberta.
+
+#include <stdio.h>
+
+int encontrarTermo(int razao, int posicao) {
+    if (posicao == 1) {
+        return 1;
+    } else {
+        return razao * encontrarTermo(razao, posicao - 1);
+    }
+}
+
+int main() {
+    int razao, posicao;
+    printf("Digite a razão da progressão geométrica: ");
+    scanf("%d", &razao);
+    printf("Digite a posição a ser descoberta: ");
+    scanf("%d", &posicao);
+
+    int termo = encontrarTermo(razao, posicao);
+
+    printf("O termo na posição %d da progressão geométrica é: %d\n", posicao, termo);
+
+    return 0;
+}
+----------------------------------------------------------------
+
+// Implemente uma função recursiva para calcular a soma dos dígitos de um número
+// inteiro.
+
+
+#include <stdio.h>
+
+int somaDigitos(int numero) {
+    if (numero == 0) {
+        return 0;
+    } else {
+        return (numero % 10) + somaDigitos(numero / 10);
+    }
+}
+
+int main() {
+    int numero;
+    printf("Digite um número inteiro: ");
+    scanf("%d", &numero);
+
+    int soma = somaDigitos(numero);
+
+    printf("A soma dos dígitos de %d é: %d\n", numero, soma);
+
+    return 0;
+}
+----------------------------------------------------------------
+
+// Escreva uma função recursiva para calcular a potência de um número inteiro elevado a
+// um expoente inteiro.
+
+#include <stdio.h>
+
+int potencia(int base, int expoente) {
+    if (expoente == 0) {
+        return 1;
+    } else {
+        return base * potencia(base, expoente - 1);
+    }
+}
+
+int main() {
+    int base, expoente;
+    printf("Digite a base: ");
+    scanf("%d", &base);
+    printf("Digite o expoente: ");
+    scanf("%d", &expoente);
+
+    int resultado = potencia(base, expoente);
+
+    printf("%d elevado a %d é: %d\n", base, expoente, resultado);
+
+    return 0;
+}
