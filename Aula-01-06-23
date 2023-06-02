@@ -1,0 +1,86 @@
+#include <stdio.h>
+
+// a) Com passagem de parâmetros por valor.
+// Neste metodo não faz alteração no valor original.
+
+int mult(int a, int b){
+	printf("A mult: %d", (a * b));
+	
+}
+
+int soma(int a, int b){
+	printf("\nA soma: %d", (a + b));
+	
+}
+
+int main(){
+	int a, b;
+	
+	printf("Informe o valor de A: ");
+	scanf("%d", &a);
+	
+	printf("Informe o valor de B: ");
+	scanf("%d", &b);
+	
+	mult(a, b);
+	soma(a, b);
+	
+	return 0;
+}
+----------------------------------------------------------
+
+#include <stdio.h>
+
+// b) Com passagem de parâmetros por referência.
+// Esse metodo serve ara salvar uma variave fixamente, enquanto o metodo anterior não faz isso.
+
+void calcular(int *a, int *b, int *soma, int *mult){
+	*soma = *a + *b;
+	*mult = *a * *b;
+	printf("A soma: %d", *soma);
+	printf("\nA mult: %d", *mult);
+// toda variave que for usar para SALVAR um valor, precisa usar um *.
+}
+
+int main(){
+	int a, b, soma, mult;
+	
+	printf("Informe o valor de A: ");
+	scanf("%d", &a);
+	
+	printf("Informe o valor de B: ");
+	scanf("%d", &b);
+	
+	calcular(&a, &b, &soma, &mult);
+	
+	return 0;
+}
+----------------------------------------------------------
+
+#include <stdio.h>
+
+// c) Sem passagem de parâmetros.
+
+int calculadora(){
+	int a, b, soma, mult;
+	
+	printf("Informe o valor de A: ");
+	scanf("%d", &a);
+	
+	printf("\nInforme o valor de B: ");
+	scanf("%d", &b);
+	
+	soma = a + b;
+	mult = a * b;
+	
+	printf("\nA soma: %d", soma);
+	printf("\nA mult: %d", mult);
+	
+	return soma, mult;
+}
+
+int main(){
+	calculadora();
+
+	return 0;
+}
