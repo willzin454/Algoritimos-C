@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 // a) Com passagem de parâmetros por valor.
-// Neste metodo não faz alteração no valor original.
+// Neste metodo não faz alteração no valor original (apenas uma copia).
 
 int mult(int a, int b){
 	printf("A mult: %d", (a * b));
@@ -32,7 +32,7 @@ int main(){
 #include <stdio.h>
 
 // b) Com passagem de parâmetros por referência.
-// Esse metodo serve ara salvar uma variave fixamente, enquanto o metodo anterior não faz isso.
+// Esse metodo serve ara salvar uma variave fixamente, enquanto o metodo anterior não faz isso (pega o valor diretamente).
 
 void calcular(int *a, int *b, int *soma, int *mult){
 	*soma = *a + *b;
