@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(){
+	int *ponta, *pontb;
+	int x, y, z;
+	x = 5;
+	y = 10;
+	
+	ponta = &x;	//apontando o ponteiro A na variavel x
+	pontb = &y; //apontando o ponteiro B na variavel y
+	
+	z = y;
+	
+	*pontb = 10; //ponteiro b que ta apontando pra variavel y que vale 10, agora vale 10
+	*ponta = 20; //ponteiro a que ta apontando pra variavel x que vale 5, agora vale 20
+	 
+	printf("%d\n", x);
+	printf("%d\n", y);
+	printf("%d\n", z);
+	
+	return 0;
+}
